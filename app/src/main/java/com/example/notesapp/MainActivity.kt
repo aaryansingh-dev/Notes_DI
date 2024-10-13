@@ -15,16 +15,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.notesapp.ui.theme.NotesAppTheme
+import com.example.notesapp.ui_layer.AddNoteScreen
 import com.example.notesapp.ui_layer.NoteScreen
 import com.example.notesapp.ui_layer.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -42,13 +42,13 @@ class MainActivity : ComponentActivity() {
                     Column(modifier = Modifier.fillMaxSize().padding(innerPadding)){
 
                         val navController = rememberNavController()
-                        NavHost(navController = navController, startDestination = Screen.NoteScreen)
+                        NavHost(navController = navController, startDestination = "note_screen")
                         {
-                            composable<Screen.NoteScreen> {
+                            composable("note_screen") {
                                 NoteScreen(navController = navController, state = state, onEvent = viewModel::onEvent)
                             }
-                            composable<Screen.AddNoteScreen> {
-                                AddNoteScreen(navController)
+                            composable("add_screen") {
+                                AddNoteScreen(navController = navController, state = state, onEvent = viewModel::onEvent)
                             }
                         }
                     }
@@ -58,12 +58,3 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
-sealed class Screen()
-{
-    @Serializable
-    object NoteScreen
-
-    @Serializable
-    object AddNoteScreen
-}

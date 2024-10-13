@@ -3,8 +3,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
-
-    kotlin("plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -77,10 +75,11 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:$room_version")
 
     implementation("androidx.navigation:navigation-compose:2.8.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
+
     implementation("androidx.compose.material:material-icons-extended-android:1.7.3")
 
     kapt("androidx.hilt:hilt-compiler:1.2.0")

@@ -6,6 +6,6 @@ import com.example.notesapp.data_layer.Note
 
 data class NoteState(
     val notes: List<Note> = emptyList(),
-    val title: MutableState<String> = mutableStateOf(""),
-    val description: MutableState<String> = mutableStateOf("")
+    val title: String = "",
+    val description: String = ""
 )
