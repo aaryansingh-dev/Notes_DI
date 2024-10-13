@@ -2,7 +2,7 @@ package com.example.notesapp.ui_layer
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.notesapp.NoteDatabase
+import com.example.notesapp.data_layer.NoteDatabase
 import com.example.notesapp.data_layer.Note
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
