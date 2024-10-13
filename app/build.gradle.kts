@@ -76,4 +76,7 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
+
+    implementation("androidx.navigation:navigation-compose:2.8.2")
+    
 }
