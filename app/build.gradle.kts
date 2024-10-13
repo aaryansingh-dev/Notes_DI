@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+
+    kotlin("plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -78,5 +80,5 @@ dependencies {
     kapt("androidx.room:room-compiler:$room_version")
 
     implementation("androidx.navigation:navigation-compose:2.8.2")
-    
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
 }
